@@ -7,3 +7,14 @@
   border: none;
   border-radius: 8px 8px;
 }
+
+#card-detail-section {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.card {
+  margin: 16px;
+  border: 2px solid var(--accent);
+  border-radius: 10px 10px;
+}
