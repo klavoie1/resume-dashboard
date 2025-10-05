@@ -1,0 +1,9 @@
+#new-app-btn {
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--accent);
+  background-color: var(--primary);
+  border: none;
+  border-radius: 8px 8px;
+}
