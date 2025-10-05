@@ -17,6 +17,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public Application save(Application application) {
+        System.out.println("Application saved");
         return applicationRepository.save(application);
     }
 
@@ -27,6 +28,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public Optional<Application> findById(Long id) {
+        System.out.println("Find Application with id: " + id);
         return applicationRepository.findById(id);
     }
 
@@ -56,6 +58,8 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public void deleteApplicationById(Long id) {
+        System.out.println("Delete Application with id: " + id);
         applicationRepository.deleteById(id);
     }
+
 }
