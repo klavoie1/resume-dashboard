@@ -2,17 +2,20 @@ package com.resume.dashboard.controller;
 
 import com.resume.dashboard.model.entities.Application;
 import com.resume.dashboard.service.ApplicationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ApplicationController {
 
-    @Autowired
-    private ApplicationService applicationService;
+    private final ApplicationService applicationService;
+
+    public ApplicationController(ApplicationService applicationService) {
+        this.applicationService = applicationService;
+    }
 
     @PostMapping("/applications")
     public Application createApplication(@RequestBody Application application) {
