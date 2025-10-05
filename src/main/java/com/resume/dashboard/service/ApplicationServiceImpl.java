@@ -12,8 +12,11 @@ import java.util.Optional;
 @Service
 public class ApplicationServiceImpl implements ApplicationService {
 
-    @Autowired
-    private ApplicationRepository applicationRepository;
+    private final ApplicationRepository applicationRepository;
+
+    public ApplicationServiceImpl(ApplicationRepository applicationRepository) {
+        this.applicationRepository = applicationRepository;
+    }
 
     @Override
     public Application save(Application application) {
