@@ -11,8 +11,8 @@ import { DashboardModule } from './features/dashboard/dashboard-module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    DashboardModule
+    AppRoutingModule
+
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
