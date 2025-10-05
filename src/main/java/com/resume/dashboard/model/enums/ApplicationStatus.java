@@ -5,5 +5,5 @@ public enum ApplicationStatus {
     PENDING,
     ACCEPTED,
     REJECTED,
-    IN_PROGRESS
+    INTERVIEW
 }
