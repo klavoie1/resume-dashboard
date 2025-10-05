@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing-module';
 import { Dashboard } from './dashboard';
 import {AppModule} from '../../app-module';
+import {ApplicationList} from '../application-list/application-list';
 
 
 @NgModule({
   declarations: [
-    Dashboard
+    Dashboard,
+    ApplicationList,
   ],
   imports: [
     CommonModule,
