@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ApplicationController {
@@ -21,6 +22,11 @@ public class ApplicationController {
     @GetMapping("/applications")
     public List<Application> getAllApplications() {
         return applicationService.findAll();
+    }
+
+    @GetMapping("/applications/{id}")
+    public Optional<Application> getApplicationById(@PathVariable Long id) {
+        return applicationService.findById(id);
     }
 
     @PutMapping("/applications/{id}")
