@@ -15,6 +15,6 @@
 
 .card {
   margin: 16px;
-  border: 2px solid var(--accent);
-  border-radius: 10px 10px;
+  border: 2px solid var(--accent) !important;
+  border-radius: 10px 10px 10px 10px !important;
 }
