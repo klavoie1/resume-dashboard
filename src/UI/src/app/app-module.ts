@@ -3,7 +3,7 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { DashboardModule } from './features/dashboard/dashboard-module';
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,12 +12,13 @@ import { DashboardModule } from './features/dashboard/dashboard-module';
   imports: [
     BrowserModule,
     AppRoutingModule
-
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [App]
 })
