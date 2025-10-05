@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {Application} from '../../core/models/application';
 import {ApplicationService} from '../../core/services/application-service';
 
@@ -11,13 +11,12 @@ import {ApplicationService} from '../../core/services/application-service';
 export class ApplicationList implements OnInit{
 
   applications: Application[] = [];
+  constructor(private applicationService: ApplicationService, private cdr: ChangeDetectorRef) {}
 
-  constructor(private applicationService: ApplicationService) {
+  ngOnInit() {
+    this.applicationService.findAll().subscribe(data => {
+      this.applications = data;
+      this.cdr.detectChanges(); // or this.cdr.markForCheck(); if OnPush
+    });
   }
-
-  ngOnInit(): void {
-      this.applicationService.findAll().subscribe((data: Application[]) =>
-        this.applications = data);
-    }
-
 }
