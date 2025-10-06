@@ -11,13 +11,15 @@
       </div>
 
       <div class="col">
-        <button type="button" class="btn mt-3 p-1" disabled>
-          Last Updated: Today
+
+        <button type="button" class="btn mt-3 p-1" id="last-updated-button" disabled>
+          Last Updated: TDB
         </button>
 
         <a class="btn mt-3 ms-4" href="#" role="button" id="new-app-btn">
           + New Application
         </a>
+
       </div>
     </div>
   </div>
@@ -26,14 +28,13 @@
   <div class="row mt-3" id="dashboard-cards">
 
     <div class="card-group">
-      <!-- Total Resumes Card -->
 
+      <!-- Total Resumes Card -->
       <div class="card">
         <div class="card-body text-start">
-
           <div class="row justify-content-between">
-            <div class="col-8 align-self-start">
-              <h5 class="card-title">Total Resumes</h5>
+            <div class="col-9 align-self-start">
+              <h5 class="card-title">Total Applications</h5>
             </div>
             <div class="col-2">
               <i class="fa-regular fa-file"></i>
@@ -47,23 +48,66 @@
         </div>
       </div>
 
+
       <!-- Accepted Resumes Card -->
-
       <div class="card">
-
+        <div class="card-body text-start">
+          <div class="row justify-content-between">
+            <div class="col-8 align-self-start">
+              <h5 class="card-title">Accepted</h5>
+            </div>
+            <div class="col-2">
+              <i class="fa-regular fa-circle-check text-success"></i>
+            </div>
+          </div>
+          <br>
+          <app-application-list [status]="'ACCEPTED'"></app-application-list>
+          <p class="card-text" id="card-detail-section">
+            Offer accepted
+          </p>
+        </div>
       </div>
+
 
       <!-- Pending Resumes Card -->
-
       <div class="card">
-
+        <div class="card-body text-start">
+          <div class="row justify-content-between">
+            <div class="col-8 align-self-start">
+              <h5 class="card-title">Pending</h5>
+            </div>
+            <div class="col-2">
+              <i class="fa-regular fa-clock text-warning"></i>
+            </div>
+          </div>
+          <br>
+          <app-application-list [status]="'PENDING'"></app-application-list>
+          <p class="card-text" id="card-detail-section">
+            Waiting on Response
+          </p>
+        </div>
       </div>
+
 
       <!-- Success Rate Card -->
-
       <div class="card">
-
+        <div class="card-body text-start">
+          <div class="row justify-content-between">
+            <div class="col-8 align-self-start">
+              <h5 class="card-title">Success Rate</h5>
+            </div>
+            <div class="col-2">
+              <i class="fa-solid fa-check-double text-primary"></i>
+            </div>
+          </div>
+          <br>
+          <app-application-list [showRate]="true"></app-application-list>
+          <p class="card-text" id="card-detail-section">
+            Acceptance percentage
+          </p>
+        </div>
       </div>
+
     </div>
 
 
