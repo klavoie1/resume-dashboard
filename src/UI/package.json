@@ -33,6 +33,7 @@
     "@angular/ssr": "^20.3.2",
     "@fortawesome/angular-fontawesome": "^3.0.0",
     "@fortawesome/fontawesome-free": "^7.1.0",
+    "@swimlane/ngx-charts": "^23.0.1",
     "bootstrap": "^5.3.8",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
