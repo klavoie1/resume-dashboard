@@ -118,12 +118,26 @@
 
     <div class="card-group">
 
-      <div class="card">
-
+      <div class="card text-center">
+        <app-dashboard-chart
+          title="Resume Status Distribution"
+          type="pie"
+          [view]="view"
+          [data]=""
+          [scheme]="colorScheme"
+          [legend]="false">
+        </app-dashboard-chart>
       </div>
 
       <div class="card">
-
+        <app-dashboard-chart
+          title="Resume Status Distribution"
+          type="bar"
+          [view]="view"
+          [data]="getPieData"
+          [scheme]="colorScheme"
+          [legend]="false">
+        </app-dashboard-chart>
       </div>
 
       <div class="card">
