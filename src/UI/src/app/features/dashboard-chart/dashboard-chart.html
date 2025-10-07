@@ -1,0 +1,8 @@
+<div>
+  <ng-container [ngSwitch]="type">
+    <ngx-charts-pie-chart *ngSwitchCase="'pie'"
+                          [view]="view" [results]="data" [scheme]="scheme" [labels]="labels" [legend]="legend">
+    </ngx-charts-pie-chart>
+    <!-- other chart types here -->
+  </ng-container>
+</div>
