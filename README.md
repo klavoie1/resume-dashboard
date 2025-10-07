@@ -13,7 +13,7 @@ The backend is built with Spring Boot (Java) and the frontend is an Angular appl
 
 ## Tech Stack
 - Backend: Spring Boot (Java, Maven)
-- Frontend: Angular
+- Frontend: Angular, [ngx-charts](https://github.com/swimlane/ngx-charts/tree/master)
 - Styling: CSS, Bootstrap (icons via Font Awesome)
 - Design: Figma
 
@@ -86,7 +86,7 @@ Common commands:
 
 ## Features Roadmap
 - [ ] Persist applications (REST endpoints, database integration)
-- [ ] Create, update, delete applications from UI
+- [ ] Create, update, delete applications from UI (WIP)
 - [ ] Filter and search
 - [ ] Charts for timeline and outcomes
 - [ ] Import/export (CSV)
