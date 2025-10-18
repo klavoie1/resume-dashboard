@@ -2,7 +2,6 @@ package com.resume.dashboard.service;
 
 import com.resume.dashboard.model.entities.Application;
 import com.resume.dashboard.repository.ApplicationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public List<Application> findAll() {
-        return (List<Application>) applicationRepository.findAll();
+        return applicationRepository.findAll();
     }
 
     @Override
