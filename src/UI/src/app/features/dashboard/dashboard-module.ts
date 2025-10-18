@@ -5,14 +5,11 @@ import {RouterLink } from '@angular/router';
 import { DashboardRoutingModule } from './dashboard-routing-module';
 import { Dashboard } from './dashboard';
 import { ApplicationList } from '../application-list/application-list';
-import { AddApplication } from '../add-application/add-application';
-
 
 @NgModule({
   declarations: [
     Dashboard,
-    ApplicationList,
-    AddApplication
+    ApplicationList
   ],
   imports: [
     CommonModule,
