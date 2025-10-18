@@ -13,6 +13,7 @@ The backend is built with Spring Boot (Java) and the frontend is an Angular appl
 
 ## Tech Stack
 - Backend: Spring Boot (Java, Maven)
+- Database: MySQL
 - Frontend: Angular, [ngx-charts](https://github.com/swimlane/ngx-charts/tree/master)
 - Styling: CSS, Bootstrap (icons via Font Awesome)
 - Design: Figma
@@ -25,7 +26,7 @@ The backend is built with Spring Boot (Java) and the frontend is an Angular appl
   - `src/app/features/dashboard/` — dashboard feature (HTML/CSS/TS)
 
 ## Prerequisites
-- Java 17+ (matching your local environment)
+- Java 17+
 - Maven 3.8+
 - Node.js 18+ and npm 9+ (or the latest LTS)
 - Angular CLI (recommended): `npm install -g @angular/cli`
@@ -85,8 +86,8 @@ Common commands:
 - Frontend build: `npm run build` (inside `src/UI`)
 
 ## Features Roadmap
-- [ ] Persist applications (REST endpoints, database integration)
-- [ ] Create, update, delete applications from UI (WIP)
+- [x] Persist applications (REST endpoints, database integration)
+- [ ] Create, update, delete applications from UI ***(WIP)***
 - [ ] Filter and search
 - [ ] Charts for timeline and outcomes
 - [ ] Import/export (CSV)
