@@ -1,16 +1,19 @@
 import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { DashboardModule } from './features/dashboard/dashboard-module';
 import { DashboardRoutingModule } from './features/dashboard/dashboard-routing-module';
-import { RouterLink, RouterOutlet } from "@angular/router";
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { AddApplication } from './features/add-application/add-application';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    AddApplication
   ],
   imports: [
     BrowserModule,
@@ -18,7 +21,8 @@ import { RouterLink, RouterOutlet } from "@angular/router";
     DashboardModule,
     DashboardRoutingModule,
     RouterLink,
-    RouterOutlet
+    RouterOutlet,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -29,4 +33,4 @@ import { RouterLink, RouterOutlet } from "@angular/router";
   ],
   bootstrap: [App]
 })
-export class AppModule { }
+export class AppModule {}
