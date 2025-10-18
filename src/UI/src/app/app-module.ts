@@ -4,6 +4,9 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
+import { DashboardModule } from './features/dashboard/dashboard-module';
+import { DashboardRoutingModule } from './features/dashboard/dashboard-routing-module';
+import { RouterLink, RouterOutlet } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -11,7 +14,11 @@ import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DashboardModule,
+    DashboardRoutingModule,
+    RouterLink,
+    RouterOutlet
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
