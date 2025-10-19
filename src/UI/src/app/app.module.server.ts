@@ -1,4 +1,4 @@
-import { NgModule, provideZonelessChangeDetection } from '@angular/core';
+import { NgModule, provideZoneChangeDetection, provideZonelessChangeDetection } from '@angular/core';
 import { provideServerRendering, withRoutes } from '@angular/ssr';
 import { App } from './app';
 import { AppModule } from './app-module';
@@ -13,8 +13,8 @@ import { BrowserModule } from "@angular/platform-browser";
   ],
   providers: [
     provideServerRendering(withRoutes(serverRoutes)),
-    provideZonelessChangeDetection()
-  ],
+    provideZoneChangeDetection({ eventCoalescing: true })
+    ],
   bootstrap: [App],
 })
 export class AppServerModule {}
