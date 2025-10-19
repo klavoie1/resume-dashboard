@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
+import {HttpClientModule, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { DashboardModule } from './features/dashboard/dashboard-module';
 import { DashboardRoutingModule } from './features/dashboard/dashboard-routing-module';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -17,6 +17,7 @@ import { AddApplication } from './features/add-application/add-application';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     DashboardModule,
     DashboardRoutingModule,
