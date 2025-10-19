@@ -28,6 +28,7 @@
   </div>
 
 
+
   <div class="row mt-3" id="dashboard-cards">
 
     <div class="card-group">
@@ -92,6 +93,7 @@
       </div>
 
 
+
       <!-- Success Rate Card -->
       <div class="card">
         <div class="card-body text-start">
@@ -117,6 +119,8 @@
 
   </div>
 
+
+
   <div class="row mt-3" id="dashboard-charts">
 
     <div class="card-group">
@@ -134,6 +138,62 @@
       </div>
 
     </div>
+
+  </div>
+
+
+  <div class="card">
+    <div class="row mt-3" id="dashboard-list">
+
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Position</th>
+          <th scope="col">Company</th>
+          <th scope="col">Status</th>
+          <th scope="col">Progress</th>
+          <th scope="col">Date Applied</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (app of applications; track app.id) {
+            <div *ngIf="isLoading" class="text-muted">Loading applications…</div>
+            <div *ngIf="error" class="text-danger">{{ error }}</div>
+            <tr>
+              <td>{{ app.jobTitle }}</td>
+              <td>{{ app.company }}</td>
+              <td>{{ app.status }}</td>
+              <td>
+                <div class="progress" role="progressbar" aria-label="Application progress" aria-valuenow="{{ app.progress || 0 }}" aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar" [style.width.%]="app.progress || 0"></div>
+                </div>
+              </td>
+              <td>{{ app.submissionDate | date:'MM-dd-yyyy' }}</td>
+              <td>
+
+                <div class="dropdown">
+                  <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                  </ul>
+                </div>
+
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="5">No applications found</td>
+            </tr>
+          }
+        </tbody>
+
+      </table>
+
+  </div>
+
+
 
   </div>
 
