@@ -36,8 +36,4 @@ export class Dashboard implements OnInit {
     });
   }
 
-  // Optional: use with *ngFor if you prefer trackBy over @for
-  trackById(_: number, app: Application) {
-    return app.id ?? app;
-  }
 }
