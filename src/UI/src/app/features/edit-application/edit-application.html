@@ -1,1 +1,73 @@
-<p>edit-application works!</p>
+<div class="container mt-4">
+  <form (ngSubmit)="onSubmit()" #formRef="ngForm">
+
+    <div class="mb-4">
+      <label class="form-label" for="jobTitle" id="applicationTitle">Job Title</label>
+      <input
+        id="jobTitle"
+        name="jobTitle"
+        type="text"
+        class="form-control"
+        [(ngModel)]="application.jobTitle"
+        required
+      />
+      <div id="formHelp" class="form-text">Enter the title of the role applied for.</div>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label" for="company" id="applicationTitle">Company Name</label>
+      <input
+        id="company"
+        name="company"
+        type="text"
+        class="form-control"
+        [(ngModel)]="application.company"
+        required
+      />
+      <div id="formHelp" class="form-text">Enter the name of the company applied to.</div>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label" for="status" id="applicationTitle">Application Status</label>
+      <select
+        id="status"
+        name="status"
+        class="form-select"
+        [(ngModel)]="application.status"
+        required
+      >
+        <option [ngValue]="'PENDING'">PENDING</option>
+        <option [ngValue]="'ACCEPTED'">ACCEPTED</option>
+        <option [ngValue]="'REJECTED'">REJECTED</option>
+        <option [ngValue]="'INTERVIEW'">INTERVIEW</option>
+        <option [ngValue]="'UNKNOWN'">UNKNOWN</option>
+      </select>
+      <div id="formHelp" class="form-text">Enter the current application status.</div>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label" for="submissionDate" id="applicationTitle">Date Applied</label>
+      <input
+        id="submissionDate"
+        name="submissionDate"
+        type="date"
+        class="form-control"
+        [(ngModel)]="application.submissionDate"
+      />
+      <div id="formHelp" class="form-text">The date you applied to the job.</div>
+    </div>
+
+    <div class="d-flex gap-2 align-items-start">
+      <button type="submit" class="btn btn-primary" [disabled]="isSubmitting || formRef.invalid">
+        {{ isSubmitting ? 'Submitting…' : 'Submit' }}
+      </button>
+      <span class="text-danger" *ngIf="error">{{ error }}</span>
+      <button type="button" class="btn btn-outline-danger ms-2" (click)="onDelete()" [disabled]="isSubmitting">
+        Delete
+      </button>
+      <a type="button" class="btn btn-outline-secondary" routerLink="/dashboard">
+        Back
+      </a>
+    </div>
+  </form>
+</div>
