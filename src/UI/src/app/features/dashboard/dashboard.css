@@ -28,3 +28,13 @@
 #last-updated-button {
   font-size: 16px;
 }
+
+#application-list-title {
+  font-size: 20px;
+}
+
+
+#application-list-table {
+  width: 97%;
+  margin: 1% auto 1%;
+}
