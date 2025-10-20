@@ -2,6 +2,8 @@
 
 A full‑stack web application to track your job applications, monitor progress, and visualize your success rate.
 
+![Current Dashboard View](src/main/resources/images/Resume-Dashboard-Screengrab.png)
+
 ## Overview
 This project provides a simple dashboard where you can:
 - Add and manage job applications
