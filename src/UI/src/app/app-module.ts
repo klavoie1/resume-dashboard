@@ -9,11 +9,13 @@ import { DashboardModule } from './features/dashboard/dashboard-module';
 import { DashboardRoutingModule } from './features/dashboard/dashboard-routing-module';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { AddApplication } from './features/add-application/add-application';
+import { EditApplication } from './features/edit-application/edit-application';
 
 @NgModule({
   declarations: [
     App,
-    AddApplication
+    AddApplication,
+    EditApplication
   ],
   imports: [
     BrowserModule,
