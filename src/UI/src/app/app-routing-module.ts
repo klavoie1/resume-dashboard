@@ -7,7 +7,7 @@ import { EditApplication } from './features/edit-application/edit-application';
 const routes: Routes = [
   { path: 'dashboard', component: Dashboard },
   { path: 'add-application', component: AddApplication },
-  { path: 'edit-application', component: EditApplication },
+  { path: 'edit-application/:id', component: EditApplication },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '/dashboard' }
 ];
