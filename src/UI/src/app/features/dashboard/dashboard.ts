@@ -36,4 +36,23 @@ export class Dashboard implements OnInit {
     });
   }
 
+  onDelete(app: Application) {
+    if (!app.id) return;
+
+    const yes = confirm(`Delete application for "${app.jobTitle ?? ''}" at "${app.company ?? ''}"?`);
+    if (!yes) return;
+    this.error = undefined;
+
+    this.applicationService.delete(app.id).subscribe({
+      next: () => {
+        // this.applications = this.applications.filter(a => a.id !== app.id);
+        this.loadApplications();
+      },
+      error: (err) => {
+        console.error('Delete failed', err);
+        this.error = 'Failed to delete application';
+      }
+    });
+  }
+
 }
