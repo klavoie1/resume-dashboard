@@ -36,4 +36,5 @@ export class AddApplication {
       }
     });
   }
+  protected readonly Router = Router;
 }
