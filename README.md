@@ -2,7 +2,8 @@
 
 A full‑stack web application to track your job applications, monitor progress, and visualize your success rate.
 
-![Current Dashboard View](src/main/resources/images/Resume-Dashboard-Screengrab.png)
+![Current Dashboard View](src/main/resources/images/Resume-Dashboard-V2-Screengrab.png)
+*Current view of Dashboard (WIP)*
 
 ## Overview
 This project provides a simple dashboard where you can:
@@ -88,10 +89,10 @@ Common commands:
 - Frontend build: `npm run build` (inside `src/UI`)
 
 ## Features Roadmap
-- [x] Persist applications (REST endpoints, database integration)
-- [ ] Create, update, delete applications from UI ***(WIP)***
+- [x] Persist applications (REST endpoints, database integration) (Completed 10/17/2025)
+- [x] Create, update, delete applications from UI (Completed 10/20/2025)
 - [ ] Filter and search
-- [ ] Charts for timeline and outcomes
+- [ ] Charts for timeline and outcomes ***(Currently WIP)***
 - [ ] Import/export (CSV)
 
 ## Contributing
