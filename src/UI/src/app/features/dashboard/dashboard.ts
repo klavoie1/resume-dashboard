@@ -12,8 +12,11 @@ export class Dashboard implements OnInit {
   applications: Application[] = [];
   isLoading = false;
   error?: string;
+  currentDate: Date = new Date();
+  hasMonthData = false;
 
   appsByStatus: { name: string; value: number }[] = [];
+  appsByMonth: { name: string; value: number }[] = [];
 
   view: [number, number] = [380, 300];
   gradient = false;
@@ -36,6 +39,8 @@ export class Dashboard implements OnInit {
           progress: this.computeProgress(a)
         }));
         this.appsByStatus = this.buildStatusChart(this.applications);
+        this.appsByMonth  = this.buildLastTwoMonthsBarChart(this.applications);
+        this.hasMonthData = this.appsByMonth.some(d => d.value > 0);
         this.isLoading = false;
       },
       error: (err) => {
@@ -46,7 +51,7 @@ export class Dashboard implements OnInit {
     });
   }
 
-  private buildStatusChart(apps: Application[]): { name: string; value: number }[] {
+  public buildStatusChart(apps: Application[]): { name: string; value: number }[] {
     const counts = new Map<string, number>();
     for (const a of apps) {
       const key = a.status ?? 'UNKNOWN';
@@ -65,6 +70,47 @@ export class Dashboard implements OnInit {
       name: labels[status] ?? status,
       value
     }));
+  }
+
+  private getSubmittedDate(app: Application): Date | undefined {
+    const raw = app.submissionDate ?? app.createdDate;
+    if (!raw) return undefined;
+    const d = new Date(raw);
+    return isNaN(d.getTime()) ? undefined : d;
+  }
+
+  private formatMonthLabel(year: number, monthIndex0: number): string {
+    const short = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return `${short[monthIndex0]} ${year}`;
+  }
+
+  public buildLastTwoMonthsBarChart(apps: Application[]): { name: string; value: number }[] {
+    const now = this.currentDate ?? new Date();
+
+    const curYear = now.getFullYear();
+    const curMon = now.getMonth();
+
+    // Previous month with year rollover
+    const prevMon = (curMon + 11) % 12;
+    const prevYear = curMon === 0 ? curYear - 1 : curYear;
+
+    let curCount = 0;
+    let prevCount = 0;
+
+    for (const a of apps) {
+      const d = this.getSubmittedDate(a);
+      if (!d) continue;
+      const y = d.getFullYear();
+      const m = d.getMonth();
+
+      if (y === curYear && m === curMon) curCount++;
+      else if (y === prevYear && m === prevMon) prevCount++;
+    }
+
+    return [
+      { name: this.formatMonthLabel(prevYear, prevMon), value: prevCount },
+      { name: this.formatMonthLabel(curYear, curMon), value: curCount }
+    ];
   }
 
   onDelete(app: Application) {
