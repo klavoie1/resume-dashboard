@@ -24,7 +24,6 @@
   border-radius: 10px 10px 10px 10px !important;
 }
 
-
 #last-updated-button {
   font-size: 16px;
 }
@@ -38,3 +37,9 @@
   width: 97%;
   margin: 1% auto 1%;
 }
+
+#application-edit-btn:hover {
+  border: 1px solid var(--secondary-foreground);
+}
+
+
