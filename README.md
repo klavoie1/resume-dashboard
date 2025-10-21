@@ -2,7 +2,7 @@
 
 A full‑stack web application to track your job applications, monitor progress, and visualize your success rate.
 
-![Current Dashboard View](src/main/resources/images/Resume-Dashboard-V2-Screengrab.png)
+![Current Dashboard View](src/main/resources/images/Resume-Dashboard-V3-Screengrab.png)
 *Current view of Dashboard (WIP)*
 
 ## Overview
