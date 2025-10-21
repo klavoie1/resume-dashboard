@@ -25,7 +25,10 @@ export class Dashboard implements OnInit {
 
     this.applicationService.findAll().subscribe({
       next: (apps) => {
-        this.applications = apps ?? [];
+        this.applications = (apps ?? []).map(a => ({
+          ...a,
+          progress: this.computeProgress(a)
+        }));
         this.isLoading = false;
       },
       error: (err) => {
@@ -53,6 +56,26 @@ export class Dashboard implements OnInit {
         this.error = 'Failed to delete application';
       }
     });
+  }
+
+  private computeProgress(app: Application): number {
+    switch (app.status) {
+      case 'PENDING':   return 25;
+      case 'INTERVIEW': return 75;
+      case 'ACCEPTED':  return 100;
+      case 'REJECTED':  return 50;
+      default:          return 0;
+    }
+  }
+
+  public progressBarColor(app: Application): string {
+    switch (app.status) {
+      case 'PENDING':   return 'bg-secondary bg-gradient';
+      case 'INTERVIEW': return 'bg-warning bg-gradient';
+      case 'ACCEPTED':  return 'bg-success bg-gradient';
+      case 'REJECTED':  return 'bg-danger bg-gradient';
+      default:          return 'bg-light-subtle';
+    }
   }
 
 }
