@@ -21,6 +21,7 @@ export class Dashboard implements OnInit {
   view: [number, number] = [380, 300];
   gradient = false;
   showLabels = true;
+  showGridLines = false;
 
   constructor(private applicationService: ApplicationService) {}
 
