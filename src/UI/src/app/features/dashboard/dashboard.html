@@ -151,7 +151,29 @@
       </div>
 
       <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Applications Submitted (Last 2 Months)</h5>
 
+          <ngx-charts-bar-vertical
+            [view]="view"
+            [results]="appsByMonth"
+            [scheme]="'vivid'"
+            [gradient]="false"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="false"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            [xAxisLabel]="'Month'"
+            [yAxisLabel]="'Applications'"
+            [roundEdges]="false"
+          >
+          </ngx-charts-bar-vertical>
+
+          <ng-container *ngIf="!hasMonthData && !isLoading">
+            <div class="text-muted">No data for the last two months.</div>
+          </ng-container>
+        </div>
       </div>
 
       <div class="card">
