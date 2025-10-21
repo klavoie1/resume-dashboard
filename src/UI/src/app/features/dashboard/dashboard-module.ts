@@ -5,6 +5,7 @@ import {RouterLink } from '@angular/router';
 import { DashboardRoutingModule } from './dashboard-routing-module';
 import { Dashboard } from './dashboard';
 import { ApplicationList } from '../application-list/application-list';
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ApplicationList } from '../application-list/application-list';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    RouterLink
+    RouterLink,
+    NgxChartsModule
   ]
 })
 export class DashboardModule { }

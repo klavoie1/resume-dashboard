@@ -10,6 +10,8 @@ import { DashboardRoutingModule } from './features/dashboard/dashboard-routing-m
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { AddApplication } from './features/add-application/add-application';
 import { EditApplication } from './features/edit-application/edit-application';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { EditApplication } from './features/edit-application/edit-application';
     DashboardRoutingModule,
     RouterLink,
     RouterOutlet,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
