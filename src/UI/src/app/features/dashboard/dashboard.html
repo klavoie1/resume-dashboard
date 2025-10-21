@@ -134,7 +134,7 @@
           <ngx-charts-pie-chart
             [view]="view"
             [results]="appsByStatus"
-            [scheme]="'vivid'"
+            [scheme]="'horizon'"
             [gradient]="gradient"
             [legend]="false"
             [labels]="showLabels"
@@ -157,16 +157,16 @@
           <ngx-charts-bar-vertical
             [view]="view"
             [results]="appsByMonth"
-            [scheme]="'vivid'"
+            [scheme]="'horizon'"
             [gradient]="false"
             [xAxis]="true"
             [yAxis]="true"
             [legend]="false"
-            [showXAxisLabel]="true"
-            [showYAxisLabel]="true"
+            [showXAxisLabel]="false"
+            [showYAxisLabel]="false"
             [xAxisLabel]="'Month'"
             [yAxisLabel]="'Applications'"
-            [roundEdges]="false"
+            [roundEdges]="true"
           >
           </ngx-charts-bar-vertical>
 
