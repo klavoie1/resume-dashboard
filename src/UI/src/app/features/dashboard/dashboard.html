@@ -216,10 +216,10 @@
             }
 
             @for (app of applications; track app.id) {
-              <tr>
-                <td>{{ app.jobTitle }}</td>
-                <td>{{ app.company }}</td>
-                <td>{{ app.status }}</td>
+              <tr >
+                <td class="align-middle">{{ app.jobTitle }}</td>
+                <td class="align-middle">{{ app.company }}</td>
+                <td class="align-middle">{{ app.status }}</td>
                 <td>
                   <div class="text-start justify-content-center">{{ (app.progress || 0) + '%' }}</div>
                   <div class="progress" role="progressbar" aria-label="Application progress"
@@ -229,15 +229,17 @@
                          [ngClass]="progressBarColor(app)"></div>
                   </div>
                 </td>
-                <td>{{ app.submissionDate | date:'yyyy-MM-dd' }}</td>
-                <td>
+                <td class="align-middle">{{ app.submissionDate | date:'yyyy-MM-dd' }}</td>
+                <td class="align-middle">
                   <div class="dropdown">
                     <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false"></button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" [routerLink]="['/edit-application', app.id]">Edit</a></li>
                       <li>
-                        <button class="dropdown-item text-danger" type="button" (click)="onDelete(app)">Delete</button>
+                          <a class="dropdown-item" [routerLink]="['/edit-application', app.id]"><i class="fa-regular fa-pen-to-square"></i>Edit</a>
+                      </li>
+                      <li>
+                        <button class="dropdown-item text-danger" type="button" (click)="onDelete(app)"><i class="fa-regular fa-trash-can"></i>Delete</button>
                       </li>
                     </ul>
                   </div>
