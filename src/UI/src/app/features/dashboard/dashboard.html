@@ -17,7 +17,7 @@
       <div class="col">
 
         <button type="button" class="btn mt-3 p-1" id="last-updated-button" disabled>
-          Last Updated: TDB
+          Last Updated: TBD
         </button>
 
         <a routerLink="/add-application" class="btn mt-3 ms-4" role="button" id="new-app-btn" >
@@ -180,10 +180,12 @@
                 <td>{{ app.company }}</td>
                 <td>{{ app.status }}</td>
                 <td>
-                  <div class="text-start justify-content-center">{{ app.progress + "%" }}</div>
+                  <div class="text-start justify-content-center">{{ (app.progress || 0) + '%' }}</div>
                   <div class="progress" role="progressbar" aria-label="Application progress"
                        aria-valuenow="{{ app.progress || 0 }}" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar" [style.width.%]="app.progress || 0"></div>
+                    <div class="progress-bar"
+                         [style.width.%]="app.progress || 0"
+                         [ngClass]="progressBarColor(app)"></div>
                   </div>
                 </td>
                 <td>{{ app.submissionDate | date:'yyyy-MM-dd' }}</td>
