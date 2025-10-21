@@ -13,6 +13,12 @@ export class Dashboard implements OnInit {
   isLoading = false;
   error?: string;
 
+  appsByStatus: { name: string; value: number }[] = [];
+
+  view: [number, number] = [380, 300];
+  gradient = false;
+  showLabels = true;
+
   constructor(private applicationService: ApplicationService) {}
 
   ngOnInit(): void {
@@ -29,6 +35,7 @@ export class Dashboard implements OnInit {
           ...a,
           progress: this.computeProgress(a)
         }));
+        this.appsByStatus = this.buildStatusChart(this.applications);
         this.isLoading = false;
       },
       error: (err) => {
@@ -37,6 +44,27 @@ export class Dashboard implements OnInit {
         this.isLoading = false;
       }
     });
+  }
+
+  private buildStatusChart(apps: Application[]): { name: string; value: number }[] {
+    const counts = new Map<string, number>();
+    for (const a of apps) {
+      const key = a.status ?? 'UNKNOWN';
+      counts.set(key, (counts.get(key) ?? 0) + 1);
+    }
+
+    const labels: Record<string, string> = {
+      PENDING: 'Pending',
+      INTERVIEW: 'Interview',
+      ACCEPTED: 'Accepted',
+      REJECTED: 'Rejected',
+      UNKNOWN: 'Unknown'
+    };
+
+    return Array.from(counts.entries()).map(([status, value]) => ({
+      name: labels[status] ?? status,
+      value
+    }));
   }
 
   onDelete(app: Application) {
