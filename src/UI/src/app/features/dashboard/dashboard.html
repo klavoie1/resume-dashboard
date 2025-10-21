@@ -128,7 +128,26 @@
     <div class="card-group">
 
       <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Applications by Status</h5>
 
+          <ngx-charts-pie-chart
+            [view]="view"
+            [results]="appsByStatus"
+            [scheme]="'vivid'"
+            [gradient]="gradient"
+            [legend]="false"
+            [labels]="showLabels"
+            [doughnut]="false"
+            [explodeSlices]="false"
+            [arcWidth]="0.25"
+          >
+          </ngx-charts-pie-chart>
+
+          <ng-container *ngIf="!appsByStatus?.length && !isLoading">
+            <div class="text-muted">No data to display.</div>
+          </ng-container>
+        </div>
       </div>
 
       <div class="card">
