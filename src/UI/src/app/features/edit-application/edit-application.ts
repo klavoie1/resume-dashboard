@@ -72,7 +72,8 @@ export class EditApplication {
 
   onDelete() {
     if (!this.application.id) return;
-    const yes = confirm('Are you sure you want to delete this application?');
+    const yes = confirm('Are you sure you want to delete this application?\n' +
+      'This action cannot be undone.');
     if (!yes) return;
     this.error = undefined;
 
