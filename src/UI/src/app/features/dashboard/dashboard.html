@@ -178,9 +178,26 @@
       </div>
 
       <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Submissions this Year</h5>
 
-      </div>
+          <ngx-charts-heat-map
+            [view]="view"
+            [scheme]="'cool'"
+            [legend]="false"
+            [showXAxisLabel]="false"
+            [showYAxisLabel]="false"
+            [xAxis]="true"
+            [yAxis]="true"
+            [xAxisLabel]="'Placeholder'"
+            [yAxisLabel]="'Placeholder'">
 
+          </ngx-charts-heat-map>
+
+          <ng-container *ngIf="!hasMonthData && !isLoading">
+            <div class="text-muted">No data for the year.</div>
+          </ng-container>
+        </div>
     </div>
 
   </div>
