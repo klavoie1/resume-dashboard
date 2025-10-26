@@ -179,22 +179,18 @@
 
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title mb-3">Submissions this Year</h5>
+          <h5 class="card-title mb-4">Submissions this Year vs Previous Year</h5>
 
-          <ngx-charts-heat-map
-            [view]="view"
+          <ngx-charts-number-card
+            [view]="[380, 250]"
+            [results]="appsByYear"
             [scheme]="'cool'"
-            [legend]="false"
-            [showXAxisLabel]="false"
-            [showYAxisLabel]="false"
-            [xAxis]="true"
-            [yAxis]="true"
-            [xAxisLabel]="'Placeholder'"
-            [yAxisLabel]="'Placeholder'">
+            [cardColor]="'#170909'"
+            [textColor]="'black'"
+            [innerPadding]="5">
+          </ngx-charts-number-card>
 
-          </ngx-charts-heat-map>
-
-          <ng-container *ngIf="!hasMonthData && !isLoading">
+          <ng-container *ngIf="!hasYearData && !isLoading">
             <div class="text-muted">No data for the year.</div>
           </ng-container>
         </div>
