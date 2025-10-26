@@ -2,7 +2,7 @@
 
 A full‑stack web application to track your job applications, monitor progress, and visualize your success rate.
 
-![Current Dashboard View](src/main/resources/images/Resume-Dashboard-V4-Screengrab.png)
+![Current Dashboard View](src/main/resources/images/Resume-Dashboard-V5-Screengrab.png)
 *Current view of Dashboard (WIP)*
 
 ## Overview
@@ -92,7 +92,7 @@ Common commands:
 - [x] Persist applications (REST endpoints, database integration) (Completed 10/17/2025)
 - [x] Create, update, delete applications from UI (Completed 10/20/2025)
 - [ ] Filter and search
-- [ ] Charts for timeline and outcomes ***(Currently WIP/ Two-Thirds Finished)***
+- [x] Charts for timeline and outcomes (Completed 10/26/2025)
 - [ ] Import/export (CSV)
 
 ## Contributing
