@@ -14,9 +14,11 @@ export class Dashboard implements OnInit {
   error?: string;
   currentDate: Date = new Date();
   hasMonthData = false;
+  hasYearData = false;
 
   appsByStatus: { name: string; value: number }[] = [];
   appsByMonth: { name: string; value: number }[] = [];
+  appsByYear: { name: string; value: number }[] = [];
 
   view: [number, number] = [380, 300];
   gradient = false;
@@ -41,7 +43,9 @@ export class Dashboard implements OnInit {
         }));
         this.appsByStatus = this.buildStatusChart(this.applications);
         this.appsByMonth  = this.buildLastTwoMonthsBarChart(this.applications);
+        this.appsByYear = this.buildYearSubmissions(this.applications);
         this.hasMonthData = this.appsByMonth.some(d => d.value > 0);
+        this.hasYearData = this.appsByYear.some(d => d.value > 0);
         this.isLoading = false;
       },
       error: (err) => {
@@ -85,6 +89,14 @@ export class Dashboard implements OnInit {
     return `${short[monthIndex0]} ${year}`;
   }
 
+  public formatYearLabel(year: number): any {
+    if (!year) return null;
+
+    if (year === this.currentDate.getFullYear()) return `${year}`;
+    if (year === this.currentDate.getFullYear() - 1) return `${year}`;
+
+  }
+
   public buildLastTwoMonthsBarChart(apps: Application[]): { name: string; value: number }[] {
     const now = this.currentDate ?? new Date();
 
@@ -112,6 +124,33 @@ export class Dashboard implements OnInit {
       { name: this.formatMonthLabel(prevYear, prevMon), value: prevCount },
       { name: this.formatMonthLabel(curYear, curMon), value: curCount }
     ];
+  }
+
+  public buildYearSubmissions(apps: Application[]): { name: string; value: number }[] {
+    const now = this.currentDate ?? new Date();
+
+    const curYear = now.getFullYear();
+    const prevYear = curYear - 1;
+
+    let curYearSubmission = 0;
+    let prevYearSubmission = 0;
+
+    for (const a of apps) {
+      const d = this.getSubmittedDate(a);
+      if (!d) continue;
+
+      if (d.getFullYear() === curYear) {
+        curYearSubmission++;
+      } else if (d.getFullYear() === prevYear) {
+        prevYearSubmission++;
+      }
+    }
+
+    return [
+      { name: this.formatYearLabel(prevYear), value: prevYearSubmission },
+      { name: this.formatYearLabel(curYear), value: curYearSubmission }
+    ]
+
   }
 
   onDelete(app: Application) {
